@@ -1,0 +1,62 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+
+#          google:    # autoconfiguration because `RegistrationId` == `CommonOAuth2Provider.GOOGLE`
+#            client-id: ${GOOGLE_CLIENT_ID}
+#            client-secret: ${GOOGLE_CLIENT_SECRET}
+
+          # redirect_uri=http://localhost:8080/login/oauth2/code/hello-word
+          google-login: # works same of above
+            provider: google # this is the provider name ( Identifier ) if matches with `CommonOAuth2Provider` then it works with minimal configuration
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+my:
+  env:
+    var: "hola"
+
+# in `CommonOAuth2Provider` are github, google, facebook, okta. because that it works with minimal configuration
+
+
+
+#
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: your-google-client-id
+#            client-secret: your-google-client-secret
+#            client-authentication-method: basic
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8080/login/oauth2/code/google
+#            scope: openid,profile,email
+#            client-name: Google
+#          github:
+#            client-id: your-github-client-id
+#            client-secret: your-github-client-secret
+#            client-authentication-method: post
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8080/login/oauth2/code/github
+#            scope: read:user,repo
+#            client-name: GitHub
+#        provider:
+#          google:
+#            authorization-uri: https://accounts.google.com/o/oauth2/auth
+#            token-uri: https://accounts.google.com/o/oauth2/token
+#            jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+#            issuer-uri: https://accounts.google.com
+#            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+#            user-info-authentication-method: header
+#            user-name-attribute: email
+#          github:
+#            authorization-uri: https://github.com/login/oauth/authorize
+#            token-uri: https://github.com/login/oauth/access_token
+#            jwk-set-uri: https://api.github.com/user/keys
+#            issuer-uri: https://github.com
+#            user-info-uri: https://api.github.com/user
+#            user-info-authentication-method: header
+#            user-name-attribute: login
